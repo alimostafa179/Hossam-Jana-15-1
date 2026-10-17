@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <symbol id="flower" viewBox="0 0 120 120">
+  <g fill="#8fa898" stroke="#6f8a7a" stroke-width=".6"><ellipse cx="90" cy="94" rx="9" ry="23" transform="rotate(-50 90 94)"/><ellipse cx="36" cy="96" rx="8" ry="21" transform="rotate(35 36 96)"/><ellipse cx="102" cy="58" rx="7" ry="17" transform="rotate(-100 102 58)"/><ellipse cx="14" cy="62" rx="6" ry="15" transform="rotate(80 14 62)"/></g>
+  <g fill="#d8a93a"><circle cx="108" cy="84" r="2.6"/><circle cx="104" cy="92" r="2"/><circle cx="24" cy="106" r="2.4"/><circle cx="12" cy="84" r="2"/></g>
+  <g fill="#fffaf0" stroke="#e1cfa8" stroke-width="1" transform="translate(58 52)">
+   <ellipse cx="0" cy="-22" rx="14" ry="19"/><ellipse cx="0" cy="-22" rx="14" ry="19" transform="rotate(72)"/><ellipse cx="0" cy="-22" rx="14" ry="19" transform="rotate(144)"/><ellipse cx="0" cy="-22" rx="14" ry="19" transform="rotate(216)"/><ellipse cx="0" cy="-22" rx="14" ry="19" transform="rotate(288)"/>
+   <circle r="8" fill="#e5b84a" stroke="#b8922a"/><circle r="3.4" fill="#fff3c2" stroke="none"/></g>
+ </symbol>
+ <symbol id="star" viewBox="0 0 18 18"><path d="M9 1L10.8 6.8H17L12 10.4L13.8 16.2L9 12.6L4.2 16.2L6 10.4L1 6.8H7.2Z" fill="none" stroke="#8B6914" stroke-width=".9"/></symbol>
+</defs></svg>
+
+<div id="petals" aria-hidden="true"></div>
+<audio id="bgm" loop preload="auto"></audio>
+<button id="music" aria-label="Toggle music"><s></s><s></s><s></s></button>
+
+
+<div id="cover">
+ <svg class="fx tl sway"><use href="#flower"/></svg><svg class="fx tl2 sway s2"><use href="#flower"/></svg>
+ <svg class="fx tr sway s3"><use href="#flower"/></svg><svg class="fx tr2 sway"><use href="#flower"/></svg>
+ <svg class="fx bl sway s2"><use href="#flower"/></svg><svg class="fx br sway"><use href="#flower"/></svg>
+ <div class="frame-line"></div>
+ <p class="tag">You are invited</p>
+ <svg class="star" width="16" height="16"><use href="#star"/></svg>
+ <h1 class="names cover-names"><span id="c1"></span><span class="amp">&amp;</span><span id="c2"></span></h1>
+ <p class="cover-date" id="cDate"></p>
+ <button class="open-btn" id="openBtn">Open Invitation</button>
+</div>
+
+
+<main id="main">
+<section class="hero">
+ <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+ <svg class="fx h-l sway"><use href="#flower"/></svg><svg class="fx h-r sway s2"><use href="#flower"/></svg>
+ <p class="tag r">Wedding Invitation</p>
+ <div class="ornament r"><svg width="16" height="16"><use href="#star"/></svg></div>
+ <p class="together r">Together with their families</p>
+ <h1 class="names r"><span id="n1"></span><span class="amp">&amp;</span><span id="n2"></span></h1>
+ <p class="subtitle r">Request the honour of your presence</p>
+ <div class="ornament r"><svg width="16" height="16"><use href="#star"/></svg></div>
+ <p class="tag r">at their wedding celebration</p>
+</section>
+
+<section class="details-section">
+ <p class="section-label r">The Details</p>
+ <div class="details-grid r">
+  <div class="detail-block">
+   <svg class="detail-icon" viewBox="0 0 28 28" fill="none" stroke="#3B5249" stroke-width=".9"><rect x="3" y="5" width="22" height="20" rx="1"/><path d="M3 11h22M9 3v5M19 3v5"/><text id="icoDay" x="14" y="22" text-anchor="middle" font-size="8" fill="#3B5249" stroke="none"></text></svg>
+   <span class="detail-label">Date</span><div class="detail-value" id="dVal"></div><span class="detail-sub" id="dSub"></span>
+  </div>
+  <div class="detail-block">
+   <svg class="detail-icon" viewBox="0 0 28 28" fill="none" stroke="#3B5249" stroke-width=".9"><circle cx="14" cy="14" r="10"/><path d="M14 14V7M14 14h5"/><circle cx="14" cy="14" r="1.2" fill="#3B5249"/></svg>
+   <span class="detail-label">Time</span><div class="detail-value" id="tVal"></div><span class="detail-sub" id="tSub"></span>
+  </div>
+ </div>
+ <p class="count r" id="count"></p>
+</section>
+
+<section class="map-section">
+ <svg class="fx m-r sway"><use href="#flower"/></svg>
+ <p class="section-label r">Venue</p>
+ <div class="ornament r"><svg width="14" height="14"><use href="#star"/></svg></div>
+ <div class="venue-name r" id="vName"></div>
+ <p class="venue-address r" id="vAddr"></p>
+ <div class="map-wrapper r"><div class="map-inner">
+  <div class="map-panel">
+   <div class="map-pin"><svg width="34" height="44" viewBox="0 0 10 12"><path d="M5 0C2.8 0 1 1.8 1 4C1 7 5 12 5 12C5 12 9 7 9 4C9 1.8 7.2 0 5 0ZM5 5.5C4.2 5.5 3.5 4.8 3.5 4C3.5 3.2 4.2 2.5 5 2.5C5.8 2.5 6.5 3.2 6.5 4C6.5 4.8 5.8 5.5 5 5.5Z" fill="#8B6914"/></svg><span class="map-pin-ring"></span></div>
+   <div class="map-panel-name" id="vName2"></div><div class="map-panel-coords" id="vArea"></div>
+  </div>
+  <div class="map-address-bar"><div class="map-address-text" id="vFull"></div><a class="map-btn" id="dir" target="_blank" rel="noopener">Get Directions</a></div>
+ </div></div>
+ <div class="acts r"><a class="map-btn" id="gcal" target="_blank" rel="noopener">Add to Calendar</a><a class="map-btn" id="rsvp" target="_blank" rel="noopener">RSVP on WhatsApp</a></div>
+</section>
+
+<footer>
+ <div class="ornament"><svg width="14" height="14"><use href="#star"/></svg></div>
+ <div class="footer-names" id="fNames"></div>
+ <p class="footer-note" id="fNote"></p>
+</footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
