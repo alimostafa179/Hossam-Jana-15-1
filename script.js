@@ -5,7 +5,7 @@ const CFG = {
   venueName: 'Mirage Hall ', venueSub: 'TRANSPORT OFFICERS CLUB', venueArea: 'NILE CORNICHE,SHUBRA EL KHEMA,Cairo, Egypt',
   mapUrl: 'https://maps.app.goo.gl/1XogsQor5jaPZ8Kb9',   // paste your Google Maps link
   whatsapp: '01001471931',              // international format without +, e.g. 201001234567
-  audio: 'WhatsApp Audio 2026-10-17 at 3.27.09 PM.mpeg'    // put your song in the audio folder with this name
+  audio: 'WhatsApp Audio 2026-10-17 at 3.27.09 PM.mp3'    // put your song in the audio folder with this name
 };
 /* =================================== */
 const $ = i => document.getElementById(i);
